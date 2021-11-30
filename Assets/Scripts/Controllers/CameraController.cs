@@ -27,6 +27,9 @@ namespace PlatformerMVC
             Y = _playerTransform.transform.position.y;
             X = _playerTransform.transform.position.x;
 
+            //Y = _playerTransform.position.y;
+            //X = _playerTransform.position.x;
+
             _cameraTransform.transform.position = Vector3.Lerp(_cameraTransform.position, 
                 new Vector3(X + offsetX, Y + offsetY, _cameraTransform.position.z), Time.deltaTime * _camSpeed);
         }

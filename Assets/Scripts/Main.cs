@@ -12,6 +12,7 @@ namespace PlatformerMVC
         [SerializeField] private LevelObjectView _playerView;
         [SerializeField] private CannonView _cannonView;
         [SerializeField] private List<LevelObjectView> _coinsView;
+        [SerializeField] private GeneratorLevelView _genView;
 
         private SpriteAnimatorController _playerAnimator;
         private SpriteAnimatorController _coinAnimator;
@@ -21,6 +22,7 @@ namespace PlatformerMVC
 
         private PlayerController _playerController;
         private CoinsController _coinsController;
+        private GeneratorController _levelGenerator;
 
         void Start()
         {
@@ -47,6 +49,9 @@ namespace PlatformerMVC
             _bulletEmitterController = new BulletEmitterController(_cannonView._bullets, _cannonView._emitterTransform);
 
             _coinsController = new CoinsController(_playerView, _coinsView, _coinAnimator);
+
+            _levelGenerator = new GeneratorController(_genView);
+            _levelGenerator.Init();
         }
 
         void Update()
